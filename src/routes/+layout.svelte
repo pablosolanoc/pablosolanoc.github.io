@@ -3,32 +3,22 @@
 		isDarkMode: boolean;
 	}
 
-	export let appState = writable<AppStateType>({ isDarkMode: false });
+	export const appState = $state({ isDarkMode: false });
+
+	export const updateAppState = () => {
+		appState.isDarkMode = !appState.isDarkMode;
+	};
 </script>
 
 <script lang="ts">
 	import Navbar from '$lib/Navbar/Navbar.svelte';
-	import Typography from '$lib/Typography/Typography.svelte';
 
 	import '../app.css';
-	import type { AppStateType } from '../shared/app.types';
-	import { writable } from 'svelte/store';
-
-	// appState.subscribe((value) => {
-	// 	console.log({ value });
-	// }); // logs '0'
-
-	const updateAppState = () => {
-		appState.update((prev) => ({
-			...prev,
-			isDarkMode: !prev.isDarkMode
-		}));
-	};
 
 	$effect(() => {
 		// debugger;
 		if (document) {
-			document.documentElement.classList.toggle('dark', $appState.isDarkMode);
+			document.documentElement.classList.toggle('dark', appState.isDarkMode);
 		}
 	});
 
@@ -44,6 +34,7 @@
 	/>
 </svelte:head>
 <Navbar />
-<button class="font-ubuntu" onclick={updateAppState}>hey {$appState.isDarkMode}</button>
 
-{@render children()}
+<main class="bg-[red]-comment flex flex-col justify-center">
+	{@render children()}
+</main>

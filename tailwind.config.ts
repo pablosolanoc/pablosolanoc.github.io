@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { extendedTheme } from './src/extendedTheme';
 
 export default {
 	darkMode: 'class',
@@ -8,17 +9,7 @@ export default {
 		fontFamily: {
 			ubuntu: ['Ubuntu', 'sans-serif']
 		},
-		extend: {
-			colors: {
-				primary: '#8750f7',
-				secondary: '#2a1454'
-			},
-			transitionDuration: {
-				fast: '50ms',
-				mid: '100ms',
-				slow: '150ms'
-			}
-		}
+		extend: extendedTheme
 	},
 
 	plugins: []

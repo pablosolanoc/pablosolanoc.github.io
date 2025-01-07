@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { TypographyEnum } from './Typography.types';
+	import { NeonEnum, TypographyEnum } from './Typography.types';
 	import { twMerge } from 'tailwind-merge';
 	import AnimatedUnderline from '$lib/AnimatedUnderline/AnimatedUnderline.svelte';
 
@@ -9,16 +9,27 @@
 		children?: Snippet;
 		class?: string;
 		animatedUnderline?: boolean;
+		neonType?: NeonEnum;
 	}
 
 	const {
 		variant = TypographyEnum.p,
 		children,
 		class: classes,
-		animatedUnderline
+		animatedUnderline,
+		neonType
 	}: TypographyProps = $props();
 
-	const extraClasses = [classes, animatedUnderline ? 'relative group' : undefined];
+	const extraClasses = [
+		classes,
+		'duration-veryslow',
+		animatedUnderline ? 'relative group' : undefined,
+		neonType === NeonEnum.primary
+			? 'neon-hover-primary'
+			: neonType === NeonEnum.extra
+				? 'neon-hover-extra'
+				: ''
+	];
 </script>
 
 {#if children}

@@ -6,3 +6,8 @@ export enum TypographyEnum {
 	p = 'p',
 	blockquote = 'blockquote'
 }
+
+export enum NeonEnum {
+	primary = 'primary',
+	extra = 'extra'
+}

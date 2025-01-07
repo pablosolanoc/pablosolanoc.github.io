@@ -21,7 +21,7 @@
 	}: ButtonProps = $props();
 </script>
 
-<button class={twMerge(`${buttonTypeClasses[buttonType]} ${classes} glow`)} {...restProps}>
+<button class={twMerge(`${buttonTypeClasses[buttonType]} ${classes}`)} {...restProps}>
 	{#if children}
 		{@render children()}
 	{/if}

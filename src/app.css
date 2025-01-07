@@ -1,3 +1,23 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.neon-hover-primary:hover {
+	text-shadow:
+		0 0 5px theme('colors.primary'),
+		0 0 10px theme('colors.primary'),
+		0 0 20px theme('colors.primary'),
+		0 0 40px theme('colors.primary'),
+		0 0 80px theme('colors.primary'),
+		0 0 90px theme('colors.primary');
+}
+
+.neon-hover-extra:hover > * {
+	text-shadow:
+		0 0 5px theme('colors.neon'),
+		0 0 10px theme('colors.neon'),
+		0 0 20px theme('colors.neon'),
+		0 0 40px theme('colors.neon'),
+		0 0 80px theme('colors.neon'),
+		0 0 90px theme('colors.neon');
+}
