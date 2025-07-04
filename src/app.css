@@ -12,12 +12,16 @@
 		0 0 90px theme('colors.primary');
 }
 
-.neon-hover-extra:hover > * {
+.neon-hover-extra:hover {
 	text-shadow:
 		0 0 5px theme('colors.neon'),
 		0 0 10px theme('colors.neon'),
-		0 0 20px theme('colors.neon'),
-		0 0 40px theme('colors.neon'),
 		0 0 80px theme('colors.neon'),
 		0 0 90px theme('colors.neon');
+}
+
+.shadow {
+	-webkit-filter: drop-shadow(0 0 5px theme('colors.neon'));
+	filter: drop-shadow(0 0 5px theme('colors.neon'));
+	/* Similar syntax to box-shadow */
 }

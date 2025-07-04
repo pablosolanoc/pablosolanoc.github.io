@@ -1,8 +1,10 @@
 <script module lang="ts">
 	export type MagicCardProps = {
-		gradientSize: number;
+		gradientSize?: number;
 		gradientColor?: string;
 		gradientOpacity?: number;
+		tiltScale?: number;
+		doTilt?: boolean;
 		class: string;
 		children: Snippet;
 	};
@@ -14,14 +16,17 @@
 	import { cn } from '$lib/utils';
 
 	import { appState } from '../../routes/+layout.svelte';
-	import { fromTheme } from 'tailwind-merge';
+
 	import { getExtendedTheme } from '../../extendedTheme';
+	import tilt from '../../shared/utils/tilt';
 
 	const {
 		gradientSize = 200,
 		gradientColor: gradientColorProps,
 		gradientOpacity = 0.8,
 		class: className,
+		tiltScale = 1,
+		doTilt = false,
 		children
 	}: MagicCardProps = $props();
 
@@ -56,15 +61,48 @@
 	let bg = $derived(
 		useMotionTemplate`radial-gradient(${gradSize}px circle at ${mouseX}px ${mouseY}px, ${gradColor}, transparent 100%)`
 	);
+
+	let element: HTMLElement;
+	let position = $state({ top: 0, left: 0, width: 0, height: 0 });
+
+	const updatePosition = () => {
+		if (element) {
+			const rect = element.getBoundingClientRect();
+			position = {
+				top: rect.top,
+				left: rect.left,
+				width: rect.width,
+				height: rect.height
+			};
+		}
+	};
+
+	onMount(() => {
+		updatePosition(); // Get initial position
+		window.addEventListener('resize', updatePosition);
+		window.addEventListener('scroll', updatePosition);
+
+		return () => {
+			window.removeEventListener('resize', updatePosition);
+			window.removeEventListener('scroll', updatePosition);
+		};
+	});
 </script>
 
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<!-- I have added py-4 in below code, you can customize the component as per needs -->
 <div
+	role="banner"
+	bind:this={element}
+	use:tilt={{
+		scale: tiltScale,
+		reverse: true,
+		top: position.top,
+		left: position.left,
+		doTilt
+	}}
 	onmousemove={handleMouseMove}
 	onmouseleave={handleMouseLeave}
 	class={cn(
-		'group relative flex overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white justify-center py-4',
+		'group relative flex overflow-hidden !bg-neutral-100 dark:!bg-neutral-900  text-black dark:text-white justify-center',
 		className
 	)}
 >

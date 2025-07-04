@@ -2,7 +2,10 @@ export const extendedTheme = {
 	colors: {
 		primary: '#8750f7',
 		secondary: '#2a1454',
-		neon: '#0ff'
+		neon: '#0ff',
+		globant: '#bfd732',
+		darkMode: '#0d0d0d',
+		lightMode: '#ffffff'
 	},
 	transitionDuration: {
 		fast: '50ms',

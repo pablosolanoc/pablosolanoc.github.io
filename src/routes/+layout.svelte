@@ -12,11 +12,11 @@
 
 <script lang="ts">
 	import Navbar from '$lib/Navbar/Navbar.svelte';
+	import ScrollWrapper from '$lib/ScrollWrapper/ScrollWrapper.svelte';
 
 	import '../app.css';
 
 	$effect(() => {
-		// debugger;
 		if (document) {
 			document.documentElement.classList.toggle('dark', appState.isDarkMode);
 		}
@@ -33,8 +33,11 @@
 		rel="stylesheet"
 	/>
 </svelte:head>
+
 <Navbar />
 
-<main class="bg-[red]-comment flex flex-col justify-center">
-	{@render children()}
+<main class="bg-[red]-comment flex flex-col justify-center items-center relative z-0">
+	<ScrollWrapper settings={{}}>
+		{@render children()}
+	</ScrollWrapper>
 </main>

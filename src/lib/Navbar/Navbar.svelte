@@ -1,47 +1,71 @@
-<script>
-	import Button from '$lib/Button/Button.svelte';
-	import { AnimationTypeEnum, ButtonTypeEnum } from '$lib/Button/Button.types';
-	import SectionButton from '$lib/SectionButton/SectionButton.svelte';
-	import Typography from '$lib/Typography/Typography.svelte';
-	import { NeonEnum } from '$lib/Typography/Typography.types';
-	import { appState, updateAppState } from '../../routes/+layout.svelte';
+<script lang="ts">
+	import { ButtonTypeEnum } from '$lib/Button/Button.types';
+	import Toogle from '$lib/Toogle/Toogle.svelte';
+	import AnimatedUnderline from '$lib/AnimatedUnderline/AnimatedUnderline.svelte';
+	import Anchor from '$lib/Anchor/Anchor.svelte';
+	import { getScrollinstance } from '$lib/ScrollWrapper/initLocomotiveScroll.svelte';
 
 	const sections = [
-		{ title: 'Home', link: '' },
-		{ title: 'Experience', link: '' },
-		{ title: 'Skills', link: '' },
-		{ title: 'Projects', link: '' },
-		{ title: 'Blog', link: '' }
+		{ title: 'Home', href: '/home' },
+		{ title: 'Experience', href: '/#experience' },
+		{ title: 'Skills', href: '/#skills' },
+		{ title: 'Projects', href: '/#projects' },
+		{ title: 'Blog', href: '/blog' }
 	];
+
+	let previousY: number | undefined;
+	let currentY: number | undefined = $state();
+	let clientHeight: number | undefined = $state();
+
+	let activeIdx = $state(0);
+
+	const getScrollDirection = (newY: number | undefined) => {
+		let direction = 'down';
+		if (previousY && newY && previousY > newY) {
+			direction = 'up';
+		}
+		previousY = newY;
+
+		return direction;
+	};
+
+	const scrollDirection = $derived(getScrollDirection(currentY));
+	const offScreen = $derived(
+		scrollDirection === 'down' && currentY && clientHeight && currentY > clientHeight * 4
+	);
 </script>
 
-<div class="flex w-full justify-around shadow-xl">
-	<div class="flex items-center">
-		<!-- <Logo/> -->
-		<span>mail</span>
-	</div>
-	<div class="flex justify-around">
-		{#each sections as section}
-			<SectionButton>
-				<Typography neonType={NeonEnum.primary} animatedUnderline>{section.title}</Typography>
-			</SectionButton>
-		{/each}
+<svelte:window bind:scrollY={currentY} />
 
-		<Button
-			class=""
-			buttonStyleType={ButtonTypeEnum.shell}
-			animationType={AnimationTypeEnum.outward}>Hola 222</Button
-		>
-		<Button
-			class="neon-hover-primary"
-			buttonStyleType={ButtonTypeEnum.fill}
-			animationType={AnimationTypeEnum.outward}>Hola 222</Button
-		>
-		<Button
-			class=""
-			buttonStyleType={ButtonTypeEnum.default}
-			animationType={AnimationTypeEnum.outward}>Hola 222</Button
-		>
-		<button class="font-ubuntu" onclick={updateAppState}>Toogle</button>
+<header
+	class="sticky top-0 z-[50] flex items-center justify-center transition-transform ease-in"
+	class:motion-safe:-translate-y-full={offScreen}
+	bind:clientHeight
+>
+	<div
+		class="flex flex-wrap justify-center bg-[white] shadow-2xl dark:bg-darkMode px-3 rounded-b-xl"
+	>
+		{#each sections as item, i}
+			<Anchor
+				anchorStyleType={activeIdx === i ? ButtonTypeEnum.fill : ButtonTypeEnum.shell}
+				class="group shadow-none  border-none relative mx-1 z-[1] rounded-full px-3 py-2"
+				onclick={(event) => {
+					event.preventDefault();
+
+					let anchorId = item.href.replace('#', '');
+					anchorId = anchorId.replace('/', '');
+
+					const anchor = document.getElementById(anchorId);
+					if (anchor) {
+						getScrollinstance()?.scrollTo(anchor, { offset: -100 });
+					}
+				}}
+				href={item.href}
+			>
+				{item.title}
+				<AnimatedUnderline show={activeIdx === i} />
+			</Anchor>
+		{/each}
+		<Toogle />
 	</div>
-</div>
+</header>

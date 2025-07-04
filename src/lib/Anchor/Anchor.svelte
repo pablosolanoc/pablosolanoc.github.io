@@ -19,12 +19,15 @@
 		class: classes,
 		children,
 		anchorStyleType: buttonType = AnchorTypeEnum.shell,
-		animationType = AnimationTypeEnum.outward,
+		// animationType = AnimationTypeEnum.outward,
 		...restProps
 	}: AnchorProps = $props();
 </script>
 
-<a class={twMerge(`${buttonTypeClasses[buttonType]} ${classes} glow`)} {...restProps}>
+<a
+	class={twMerge(`${buttonTypeClasses[buttonType]} ${classes} cursor-pointer glow`)}
+	{...restProps}
+>
 	{#if children}
 		{@render children()}
 	{/if}

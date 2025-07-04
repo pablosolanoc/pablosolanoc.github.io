@@ -1,12 +1,9 @@
 <script lang="ts">
-	import Button from '$lib/Button/Button.svelte';
-	import { ButtonTypeEnum } from '$lib/Button/Button.types';
 	import Typography from '$lib/Typography/Typography.svelte';
 	import type { TypographyEnum } from '$lib/Typography/Typography.types';
 
 	// Credit to https://animation-svelte.vercel.app/magic/word-rotate
-	import { cn } from '$lib/utils';
-	import Download from '@tabler/icons-svelte/icons/download';
+
 	import { onMount, type Snippet } from 'svelte';
 	import { fly } from 'svelte/transition';
 
