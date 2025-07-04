@@ -11,8 +11,6 @@
 	import me from '$lib/assets/me.png';
 	import Download from '@tabler/icons-svelte/icons/download';
 
-	let { data } = $props();
-
 	const aboutMeMetrics: MetricType[] = [
 		{ title: 'Years of Experience', metric: 4, additional: '+' },
 		{
@@ -31,7 +29,7 @@
 			<div
 				class="flex w-10/12 md:flex md:w-5/12 xl:w-5/12 md:bg-[yellow]-comment flex-col justify-center"
 			>
-				{`${data?.item?.docs?.[0]?.createdAt}`}
+				<!-- {`${data?.item?.docs?.[0]?.createdAt}`} -->
 				<div data-scroll data-scroll-speed="0.9" class="">
 					<div class="flex items-center flex-col-reverse md:flex-row">
 						<Typography

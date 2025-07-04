@@ -9,8 +9,8 @@
 		{ title: 'Home', href: '/home' },
 		{ title: 'Experience', href: '/#experience' },
 		{ title: 'Skills', href: '/#skills' },
-		{ title: 'Projects', href: '/#projects' },
-		{ title: 'Blog', href: '/blog' }
+		{ title: 'Projects', href: '/#projects' }
+		// { title: 'Blog', href: '/blog' }
 	];
 
 	let previousY: number | undefined;
