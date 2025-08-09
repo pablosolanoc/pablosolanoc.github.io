@@ -19,7 +19,7 @@
 </script>
 
 <MagicCard
-	class="flex hover:border-primary justify-center   rounded-xl items-center duration-slow bg-[yellow]-comment border-0 md:border  transition-all"
+	class="flex hover:border-primary justify-center rounded-xl items-center duration-slow bg-[yellow]-comment border-0 md:border  transition-all my-5"
 	gradientSize={300}
 	tiltScale={1.1}
 >

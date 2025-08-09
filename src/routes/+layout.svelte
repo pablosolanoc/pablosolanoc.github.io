@@ -11,6 +11,8 @@
 </script>
 
 <script lang="ts">
+	import Footer from '$lib/Footer/Footer.svelte';
+
 	import Navbar from '$lib/Navbar/Navbar.svelte';
 	import ScrollWrapper from '$lib/ScrollWrapper/ScrollWrapper.svelte';
 
@@ -41,3 +43,5 @@
 		{@render children()}
 	</ScrollWrapper>
 </main>
+
+<Footer />

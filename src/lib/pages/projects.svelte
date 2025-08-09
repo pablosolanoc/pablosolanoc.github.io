@@ -17,7 +17,7 @@
 			title: 'Summit Broadband - My Account',
 			role: 'Frontend Lead Developer',
 			description:
-				'Built and led the front-end team for a large-scale web app at Summit Broadband. I streamlined dozens of APIs into a unified UI, restructured micro-frontends into a single app, and implemented features like 2FA, account session control, and dynamic form handling. Also led product demos and API strategy meetings in English.',
+				'Built and led the front-end team for a large-scale web app at Summit Broadband. I streamlined dozens of APIs into a unified UI, restructured micro-frontends into a single app, and implemented features like 2FA, account session control, and dynamic form handling. Also led product demos and API strategy meetings in both english and spanish .',
 			link: 'https://summit-broadband.com/my-account/',
 			image: 'summit-banner.png',
 			id: 2
@@ -57,13 +57,11 @@
 	<Typography
 		dataScrollSpeed="0.05"
 		variant="h1"
-		class="z-10 !text-7xl text-center mb-5"
+		class="z-10 text-full sm:!text-7xl text-center mb-5"
 		neonType={NeonEnum.primary}
-		gradient>Projects</Typography
+		gradient>What I've built</Typography
 	>
-	<div
-		class="bg-[red]sadas justify-center w-full flex mt-5 flex-wrap lg:flex-nowrap overflow-hidden"
-	>
+	<div class=" justify-center w-full flex mt-5 flex-wrap lg:flex-nowrap overflow-hidden">
 		{#each projects as project}
 			<TiltedBanner {project} />
 		{/each}

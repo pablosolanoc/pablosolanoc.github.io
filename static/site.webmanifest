@@ -1,0 +1,21 @@
+{
+	"name": "Pablo Solano - Full Stack Developer",
+	"short_name": "Pablo Solano",
+	"description": "Full Stack Developer Portfolio - Pablo Solano",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0d0d0d",
+	"theme_color": "#8750f7",
+	"icons": [
+		{
+			"src": "/apple-icon-180x180.png",
+			"sizes": "180x180",
+			"type": "image/png"
+		},
+		{
+			"src": "/ms-icon-144x144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		}
+	]
+}

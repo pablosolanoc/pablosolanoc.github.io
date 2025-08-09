@@ -14,22 +14,23 @@
 	const { roles, color, logo, name } = data;
 </script>
 
-<div data-scroll data-scroll-speed="0.07" class="w-full flex p-1 hover:hola">
+<div data-scroll data-scroll-speed="0.07" class="w-full flex p-1 hover:hola justify-center">
 	<div class={`w-7 ${color} rounded-l-md md:rounded-none`}></div>
-	<div class="w-full">
+	<div class="w-1/2 sm:w-full">
 		{#each roles as role}
 			<MagicCard
-				class="w-full dark:bg-gray-900  opacity-90 bg-[yellow]-comment transition-all duration-500 flex flex-col !shadow-2xl"
+				class=" dark:bg-gray-900 opacity-90 bg-[yellow]-comment transition-all duration-500 flex flex-col !shadow-2xl"
 				gradientSize={300}
 				gradientColor={data.bgColor}
 				doTilt
 			>
 				<div class="h-full flex justify-between bg-[orange]-comment py-4">
-					<Typography variant={TypographyEnum.h3} class="group-hover:text-sa ml-2"
-						>{role.roleName}</Typography
+					<Typography
+						variant={TypographyEnum.h3}
+						class="group-hover:text-sa ml-2 text-end sm:text-start pr-2">{role.roleName}</Typography
 					>
 					<div
-						class="flex justify-center dark:bg-gray-500 bg-[white] rounded-full doNotSkew w-20 h-20"
+						class="justify-center dark:bg-gray-500 bg-[white] rounded-full doNotSkew min-w-20 min-h-20 w-20 h-20 hidden sm:flex"
 					>
 						<img
 							alt={`${name} logo`}
@@ -55,7 +56,7 @@
 	.doNotSkew {
 		-webkit-transform: skew(0, 0);
 		transform: skew(0, 0);
-		@media (min-width: 640px) {
+		@media (min-width: 768px) {
 			-webkit-transform: skew(16deg, 0);
 			transform: skew(16deg, 0);
 		}

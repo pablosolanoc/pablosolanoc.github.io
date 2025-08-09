@@ -4,10 +4,12 @@
 	import AnimatedUnderline from '$lib/AnimatedUnderline/AnimatedUnderline.svelte';
 	import Anchor from '$lib/Anchor/Anchor.svelte';
 	import { getScrollinstance } from '$lib/ScrollWrapper/initLocomotiveScroll.svelte';
+	import { goto } from '$app/navigation';
 
 	const sections = [
 		{ title: 'Home', href: '/home' },
 		{ title: 'Experience', href: '/#experience' },
+		{ title: 'Testimonials', href: '/#testimonials' },
 		{ title: 'Skills', href: '/#skills' },
 		{ title: 'Projects', href: '/#projects' }
 		// { title: 'Blog', href: '/blog' }
@@ -58,6 +60,11 @@
 					const anchor = document.getElementById(anchorId);
 					if (anchor) {
 						getScrollinstance()?.scrollTo(anchor, { offset: -100 });
+					} else {
+						goto(item.href, {
+							replaceState: true, // Replace current history entry
+							invalidateAll: true // Invalidate all data
+						});
 					}
 				}}
 				href={item.href}

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import GridPattern from '$lib/GridPattern/GridPattern.svelte';
+	import NestJsIcon from '$lib/Icons/NestJSIcon.svelte';
 
 	import SkillCard from '$lib/SkillCard/SkillCard.svelte';
 	import Typography from '$lib/Typography/Typography.svelte';
@@ -26,11 +27,11 @@
 		IconBrandDocker
 	} from '@tabler/icons-svelte';
 	import BrandAws from '@tabler/icons-svelte/icons/brand-aws';
-	import BrandNodejs from '@tabler/icons-svelte/icons/brand-nodejs';
 
 	const skills: {
 		name: string;
-		logo: typeof IconBrandReact;
+		logo: typeof IconBrandReact | typeof NestJsIcon;
+		fill?: boolean;
 	}[] = [
 		{ name: 'React/React Native', logo: IconBrandReact },
 
@@ -58,7 +59,7 @@
 
 		{ name: 'Html5', logo: IconBrandHtml5 },
 		{ name: 'Css3', logo: IconBrandCss3 },
-		{ name: 'NestJS', logo: BrandNodejs },
+		{ name: 'NestJS', logo: NestJsIcon, fill: true },
 		{ name: 'Docker', logo: IconBrandDocker },
 		{ name: 'AWS', logo: BrandAws }
 	];
@@ -76,17 +77,19 @@
 	<Typography
 		dataScrollSpeed="0.05"
 		variant="h1"
-		class="z-10 !text-7xl text-center"
+		class="z-10 !text-4xl sm:!text-7xl text-center"
 		neonType={NeonEnum.primary}
 		gradient>Skills</Typography
 	>
 	<Typography
 		dataScrollSpeed="0.05"
 		variant="h2"
-		class="z-10 !text-lg font-normal text-center mt-10"
+		class="z-10 !text-2xl text-center mt-10 !break-words"
 		>Tools and Technologies I use constantly</Typography
 	>
-	<div class="flex justify-around w-[80%] flex-wrap mt-8 items-center">
+	<div
+		class="flex justify-around w-[80%] flex-wrap mt-8 items-center max-h-[100vh] md:overflow-visible md:max-h-auto"
+	>
 		{#each skills as skill, index}
 			<div data-scroll data-scroll-speed={`${0.2 - 0.01 * index}`}>
 				<SkillCard {skill} />

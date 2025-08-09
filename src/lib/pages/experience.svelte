@@ -36,17 +36,23 @@
 	class="flex flex-col-reverse md:flex-row skew w-full bg-[red]-comment justify-center mt-10 outlier:max-w-[1920px]"
 	id="experience"
 >
-	<div class="flex justify-center">
-		<div class="md:skew-x-[-16deg] flex text-[#e9e8e8] w-96 bg-[blue]-comment flex-col">
+	<div class="flex justify-center z-20 w-full md:w-[40%]">
+		<div
+			class="md:skew-x-[-16deg] flex text-[#e9e8e8] w-full max-w-96 bg-[blue]-comment flex-col items-center"
+		>
 			{#each experienceData as expData}
 				<ExperienceCard data={expData} />
 			{/each}
 		</div>
 	</div>
-	<div data-scroll data-scroll-speed="0.7" class="flex flex-col justify-center my-10">
+	<div
+		data-scroll
+		data-scroll-speed="0.3"
+		class="flex flex-col justify-center md:items-center my-10 w-full md:w-[40%] z-10"
+	>
 		<Typography
 			variant="h1"
-			class="!text-7xl ml-10 text-center "
+			class="!text-full sm:!text-7xl text-center"
 			gradient
 			neonType={NeonEnum.primary}>Experience</Typography
 		>

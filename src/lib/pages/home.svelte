@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Anchor from '$lib/Anchor/Anchor.svelte';
 	import Button from '$lib/Button/Button.svelte';
 	import { ButtonTypeEnum } from '$lib/Button/Button.types';
 
@@ -8,7 +9,6 @@
 	import Typography from '$lib/Typography/Typography.svelte';
 	import { NeonEnum } from '$lib/Typography/Typography.types';
 
-	import me from '$lib/assets/me.png';
 	import Download from '@tabler/icons-svelte/icons/download';
 
 	const aboutMeMetrics: MetricType[] = [
@@ -29,13 +29,11 @@
 			<div
 				class="flex w-10/12 md:flex md:w-5/12 xl:w-5/12 md:bg-[yellow]-comment flex-col justify-center"
 			>
-				<!-- {`${data?.item?.docs?.[0]?.createdAt}`} -->
 				<div data-scroll data-scroll-speed="0.9" class="">
-					<div class="flex items-center flex-col-reverse md:flex-row">
-						<Typography
-							variant="h2"
-							class="lg:text-4xl mr-2 border-0 hover:border-b-2"
-							animatedUnderline
+					<div
+						class="z-20 flex items-center flex-col-reverse md:flex-row bg-lightMode dark:bg-darkMode p-4"
+					>
+						<Typography variant="h2" class="lg:text-4xl mr-2 text-center" animatedUnderline
 							>Hi ! I am Pablo
 						</Typography>
 						<div class="flex">
@@ -45,36 +43,37 @@
 					<div
 						data-scroll
 						data-scroll-speed="0.1"
-						class="min-h-64 flex md:block flex-col items-center"
+						class="min-h-64 flex md:block flex-col items-center !z-10"
 					>
 						<Typography variant="h1" class="break-keep text-center md:text-left">I'm a</Typography>
 						<Typography
 							variant="h1"
-							class="!text-7xl text-center md:text-left "
+							class="!text-full !break-words sm:!text-7xl text-center md:text-left "
 							neonType={NeonEnum.extra}>Full Stack Developer</Typography
 						>
-						<Button buttonStyleType={ButtonTypeEnum.shell} class="flex mt-6 justify-center">
+						<Anchor
+							target="_blank"
+							href={'https://github.com/pablosolanoc/CV/blob/main/Pablo%20Solano_En.pdf'}
+							anchorStyleType={ButtonTypeEnum.shell}
+							class="!flex mt-6 justify-center !w-[70%] sm:!w-[15rem]"
+						>
 							Download CV <Download class="ml-2" />
-						</Button>
+						</Anchor>
 					</div>
 				</div>
 			</div>
 			<div
 				data-scroll
 				data-scroll-speed="0.3"
-				class="ease-in-out duration-100 flex w-8/12 sm:w-8/12 md:w-6/12 lg:w-6/12 xl:w-4/12 h-full min-h-[50vw] md:min-h-[0] bg-[green]-comment mt-6 md:mt-0 box-border h-full justify-center items-center mb-12 md:mb-0"
+				class="ease-in-out duration-100 flex w-8/12 sm:w-8/12 md:w-6/12 lg:w-6/12 xl:w-4/12 h-full min-h-[50vw] md:min-h-[0] bg-[green]-comment mt-6 md:mt-0 box-border justify-center items-center mb-12 md:mb-0"
 			>
 				<div class="flex md:flex w-4/5 lg:w-3/5 h-full relative justify-center items-center">
 					<img
 						alt="Pablo Solano"
-						src={me}
-						class="object-cover w-full h-full md:h-auto
-            rounded-xl border-2
-            hover:border-primary hover:border-4 box-border
-            rotate-3
-            hover:rotate-0
-            ease-in-out
-            duration-150"
+						srcset="/me-400.webp 400w, /me-600.webp 600w, /me-800.webp 800w, /me-1200.webp 1200w"
+						sizes="(max-width: 640px) 66vw, (max-width: 768px) 66vw, (max-width: 1024px) 50vw, (max-width: 1280px) 40vw, 33vw"
+						class="object-cover w-full h-full md:h-auto rounded-xl border-2 hover:border-primary hover:border-4
+					box-border rotate-3 hover:rotate-0 ease-in-out duration-150"
 					/>
 				</div>
 			</div>

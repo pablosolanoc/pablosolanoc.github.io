@@ -1,6 +1,6 @@
 <script module lang="ts">
 	export type SkillCardProps = {
-		skill: { name: string; logo: typeof IconBrandReact };
+		skill: { name: string; logo: typeof IconBrandReact | typeof NestJsIcon; fill?: boolean };
 	};
 </script>
 
@@ -9,18 +9,22 @@
 	import Typography from '$lib/Typography/Typography.svelte';
 	import type { IconBrandReact } from '@tabler/icons-svelte';
 	import { appState } from '../../routes/+layout.svelte';
+	import NestJsIcon from '$lib/Icons/NestJSIcon.svelte';
 
 	let { skill }: SkillCardProps = $props();
+
+	const fillClassesDarkMode = skill.fill ? 'fill-[white]' : '';
+	const fillClasses = skill.fill ? 'fill-secondary' : '';
 
 	let isHovered = $state(false);
 	let stroke = $derived(
 		appState.isDarkMode
 			? isHovered
-				? 'stroke-[white] '
-				: 'stroke-[white] shadow'
+				? `stroke-[white] ${fillClassesDarkMode}`
+				: `stroke-[white] ${fillClassesDarkMode} shadow`
 			: isHovered
-				? 'stroke-[white]'
-				: 'stroke-secondary'
+				? `stroke-[white] ${fillClassesDarkMode}`
+				: `stroke-secondary ${fillClasses}`
 	);
 </script>
 
@@ -31,14 +35,14 @@
 >
 	<div
 		role="banner"
-		class={`flex  min-w-[10rem] max-w-[10rem] flex-col justify-center items-center my-4}`}
+		class={`flex sm:min-w-[10rem] sm:max-w-[10rem]  flex-col justify-center items-center`}
 		onmouseenter={() => (isHovered = true)}
 		onmouseleave={() => (isHovered = false)}
 	>
-		<skill.logo class={`${stroke} `} size={60} stroke={1} />
+		<skill.logo class={`${stroke} size-10 md:size-14`} stroke={1} />
 		<Typography
 			variant="h2"
-			class="!text-sm !w-full  text-center mt-2 group-hover:text-secondary capitalize leading-5"
+			class="!text-sm !w-full hidden sm:block text-center mt-2 group-hover:text-secondary capitalize leading-5"
 			gradient
 			>{skill.name}
 		</Typography>

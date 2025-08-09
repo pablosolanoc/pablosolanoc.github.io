@@ -2,8 +2,59 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Favicons -->
+		<link rel="icon" type="image/x-icon" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<!-- Static Meta Tags -->
+		<meta name="author" content="Pablo" />
+		<meta name="robots" content="index, follow" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:site_name" content="Pablo's Portfolio" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+
+		<!-- Theme -->
+		<meta name="theme-color" content="#000000" />
+		<meta name="color-scheme" content="light dark" />
+
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Pablo Solano",
+				"jobTitle": "Full Stack Developer",
+				"description": "Experienced full stack developer specializing in modern web technologies",
+				"url": "https://pablosolano.pro",
+				"sameAs": [
+					"https://github.com/pablosolanoc",
+					"https://linkedin.com/in/pablo-solano-2bb968216/"
+				],
+				"knowsAbout": [
+					"JavaScript",
+					"TypeScript",
+					"React",
+					"Svelte",
+					"Node.js",
+					"Full Stack Development",
+					"Web Development"
+				],
+				"image": "https://pablosolano.pro/profile-image.jpg"
+			}
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover" class="bg-white font-ubuntu dark:bg-darkMode">

@@ -4,7 +4,11 @@
 	import Projects from '$lib/pages/projects.svelte';
 	import Skills from '$lib/pages/skills.svelte';
 	import Testimonials from '$lib/pages/testimonials.svelte';
+	import SEO from '$lib/components/SEO.svelte';
+	import { SEOInfo } from '$lib/stores/seo';
 </script>
+
+<SEO data={SEOInfo} />
 
 <Home />
 <Experience />
