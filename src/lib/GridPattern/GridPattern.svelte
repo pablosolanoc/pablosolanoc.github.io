@@ -9,7 +9,7 @@
 
 	const { ...restProps } = $props();
 
-	let id = crypto.randomUUID().toString().slice(0, 8);
+	let id = `grid-pattern-${Math.random().toString(36).slice(2, 10)}`;
 	let fillColor = 'rgb(156 163 175 / 0.3)';
 
 	let strokeWidth = 1;
