@@ -55,6 +55,20 @@
 			}
 		</script>
 
+		<!-- Theme initialization script to prevent flashing -->
+		<script>
+			(function () {
+				try {
+					const savedTheme = localStorage.getItem('darkMode');
+					if (savedTheme === 'true') {
+						document.documentElement.classList.add('dark');
+					}
+				} catch (e) {
+					// localStorage not available
+				}
+			})();
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover" class="bg-white font-ubuntu dark:bg-darkMode">

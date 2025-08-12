@@ -3,7 +3,16 @@
 		isDarkMode: boolean;
 	}
 
-	export const appState = $state({ isDarkMode: false });
+	// Initialize theme from localStorage immediately
+	const getInitialTheme = () => {
+		if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+			const savedTheme = localStorage.getItem('darkMode');
+			return savedTheme === 'true';
+		}
+		return false;
+	};
+
+	export const appState = $state({ isDarkMode: getInitialTheme() });
 
 	export const updateAppState = () => {
 		appState.isDarkMode = !appState.isDarkMode;
@@ -21,14 +30,6 @@
 
 	import '../app.css';
 
-	$effect(() => {
-		if (typeof localStorage !== 'undefined') {
-			const savedTheme = localStorage.getItem('darkMode');
-			if (savedTheme !== null) {
-				appState.isDarkMode = savedTheme === 'true';
-			}
-		}
-	});
 
 	$effect(() => {
 		if (document) {
