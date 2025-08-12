@@ -1,9 +1,23 @@
-<script>
-	import { updateAppState } from '../../routes/+layout.svelte';
+<script lang="ts">
+	import { updateAppState, appState } from '../../routes/+layout.svelte';
+
+	let toggleElement: HTMLInputElement | null = null;
+
+	$effect(() => {
+		if (toggleElement) {
+			toggleElement.checked = appState.isDarkMode;
+		}
+	});
 </script>
 
 <div class="toggle-container ml-4">
-	<input type="checkbox" onclick={updateAppState} id="toggle" class="toggle-input" />
+	<input
+		type="checkbox"
+		bind:this={toggleElement}
+		onclick={updateAppState}
+		id="toggle"
+		class="toggle-input"
+	/>
 	<label for="toggle" class="toggle-label">
 		<span class="toggle-slider"></span>
 	</label>

@@ -7,6 +7,9 @@
 
 	export const updateAppState = () => {
 		appState.isDarkMode = !appState.isDarkMode;
+		if (typeof localStorage !== 'undefined') {
+			localStorage.setItem('darkMode', appState.isDarkMode.toString());
+		}
 	};
 </script>
 
@@ -17,6 +20,15 @@
 	import ScrollWrapper from '$lib/ScrollWrapper/ScrollWrapper.svelte';
 
 	import '../app.css';
+
+	$effect(() => {
+		if (typeof localStorage !== 'undefined') {
+			const savedTheme = localStorage.getItem('darkMode');
+			if (savedTheme !== null) {
+				appState.isDarkMode = savedTheme === 'true';
+			}
+		}
+	});
 
 	$effect(() => {
 		if (document) {

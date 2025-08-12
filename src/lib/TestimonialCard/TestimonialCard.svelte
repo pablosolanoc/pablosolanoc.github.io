@@ -30,7 +30,7 @@
 				class="w-[5rem] h-auto rounded-full m-2 object-contain"
 				src={testimonial.logo}
 			/>
-			<Typography variant="p" class="mt-2" textToCopy={testimonial.testimonial}>
+			<Typography variant="p" class="mt-2">
 				{testimonial.testimonial}
 			</Typography>
 			<div class="flex flex-col mt-6 ml-2">
