@@ -14,7 +14,7 @@ export function load() {
 			title: 'Testing Entry 2 - Loooong title to test if it overflows correctly or not',
 			dateWritten: '2025-08-26',
 			category: 'tech',
-			route: 'secondEntry2'
+			route: 'secondEntry'
 		}
 	];
 	return {

@@ -4,4 +4,6 @@
 	let { children } = $props();
 </script>
 
-<MarkdownContent>{@render children()}</MarkdownContent>
+<div class="min-h-screen">
+	<MarkdownContent>{@render children()}</MarkdownContent>
+</div>

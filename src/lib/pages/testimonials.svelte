@@ -47,7 +47,7 @@
 		},
 		{
 			id: 'testimonial-3',
-			testimonial: `"I've had the privilege of working with Pablo since the early days of Ekolabs, and he consistently delivers exceptional quality work on time, every time. His commitment to continuous improvement and professional excellence makes him an invaluable team member. Pablo combines technical expertise with genuine integrity, as a professional and as a person. Any organization would be fortunate to work with him.""`,
+			testimonial: `"I've had the privilege of working with Pablo since the early days of Ekolabs, and he consistently delivers exceptional quality work on time, every time. His commitment to continuous improvement and professional excellence makes him an invaluable team member. Pablo combines technical expertise with genuine integrity, as a professional and as a person. Any organization would be fortunate to work with him."`,
 			author: 'David Santos',
 			position: 'Principal Consultant at ThoughtWorks',
 			company: '',
