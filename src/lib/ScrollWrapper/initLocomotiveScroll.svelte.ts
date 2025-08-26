@@ -12,6 +12,6 @@ export function initLocomotiveScroll(options: LocomotiveScroll.InstanceOptions =
 	}
 }
 
-export function getScrollinstance() {
+export function getScrollInstance() {
 	return scrollInstance;
 }

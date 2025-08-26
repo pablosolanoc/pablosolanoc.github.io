@@ -1,4 +1,6 @@
 <script module lang="ts">
+	import '../app.css';
+
 	export interface LayoutProps {
 		isDarkMode: boolean;
 	}
@@ -28,9 +30,6 @@
 	import Navbar from '$lib/Navbar/Navbar.svelte';
 	import ScrollWrapper from '$lib/ScrollWrapper/ScrollWrapper.svelte';
 
-	import '../app.css';
-
-
 	$effect(() => {
 		if (document) {
 			document.documentElement.classList.toggle('dark', appState.isDarkMode);
@@ -51,7 +50,7 @@
 
 <Navbar />
 
-<main class="bg-[red]-comment flex flex-col justify-center items-center relative z-0">
+<main class="bg-[red]-comment flex flex-col justify-center w-full items-center relative z-0">
 	<ScrollWrapper settings={{}}>
 		{@render children()}
 	</ScrollWrapper>

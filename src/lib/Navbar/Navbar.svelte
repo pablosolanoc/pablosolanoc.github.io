@@ -1,25 +1,31 @@
 <script lang="ts">
 	import { ButtonTypeEnum } from '$lib/Button/Button.types';
 	import Toogle from '$lib/Toogle/Toogle.svelte';
-	import AnimatedUnderline from '$lib/AnimatedUnderline/AnimatedUnderline.svelte';
+
 	import Anchor from '$lib/Anchor/Anchor.svelte';
-	import { getScrollinstance } from '$lib/ScrollWrapper/initLocomotiveScroll.svelte';
+	import { getScrollInstance } from '$lib/ScrollWrapper/initLocomotiveScroll.svelte';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
+	import AnimatedUnderline from '$lib/AnimatedUnderline/AnimatedUnderline.svelte';
 
 	const sections = [
 		{ title: 'Home', href: '/home' },
 		{ title: 'Experience', href: '/#experience' },
 		{ title: 'Testimonials', href: '/#testimonials' },
 		{ title: 'Skills', href: '/#skills' },
-		{ title: 'Projects', href: '/#projects' }
-		// { title: 'Blog', href: '/blog' }
+		{ title: 'Projects', href: '/#projects' },
+		{ title: 'Writing', href: '/writing' }
 	];
 
 	let previousY: number | undefined;
 	let currentY: number | undefined = $state();
 	let clientHeight: number | undefined = $state();
 
-	let activeIdx = $state(0);
+	let activeIdx = $state(
+		sections.findIndex((section) => {
+			return page.url.pathname.includes(section.href);
+		})
+	);
 
 	const getScrollDirection = (newY: number | undefined) => {
 		let direction = 'down';
@@ -50,16 +56,18 @@
 		{#each sections as item, i}
 			<Anchor
 				anchorStyleType={activeIdx === i ? ButtonTypeEnum.fill : ButtonTypeEnum.shell}
-				class="group shadow-none  border-none relative mx-1 z-[1] rounded-full px-3 py-2"
+				class=" shadow-none  border-none relative mx-1 z-[1] rounded-full px-3 py-2"
 				onclick={(event) => {
 					event.preventDefault();
+
+					activeIdx = i;
 
 					let anchorId = item.href.replace('#', '');
 					anchorId = anchorId.replace('/', '');
 
 					const anchor = document.getElementById(anchorId);
 					if (anchor) {
-						getScrollinstance()?.scrollTo(anchor, { offset: -100 });
+						getScrollInstance()?.scrollTo(anchor, { offset: -100 });
 					} else {
 						goto(item.href, {
 							replaceState: true, // Replace current history entry
@@ -70,7 +78,6 @@
 				href={item.href}
 			>
 				{item.title}
-				<AnimatedUnderline show={activeIdx === i} />
 			</Anchor>
 		{/each}
 		<Toogle />

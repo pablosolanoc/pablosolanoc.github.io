@@ -7,7 +7,7 @@
 
 <footer class="flex justify-center py-8">
 	<div class="mx-auto">
-		<Typography neonType={NeonEnum.primary} gradient
+		<Typography neonType={NeonEnum.primary} gradient class="text-center"
 			>&copy; {new Date().getFullYear()} Pablo Solano. All rights reserved ;)</Typography
 		>
 		<div class="flex justify-center mx-auto">
