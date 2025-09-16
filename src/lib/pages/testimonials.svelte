@@ -31,27 +31,43 @@
 	const testimonials = [
 		{
 			id: 'testimonial-1',
-			testimonial: `"Pablo is such a productive, very detailed Front-end Developer. Working with him brings creativity to solve problems into a project. I highly recommend his work. It won't be hard for him to adapt to a team." `,
-			author: 'Igor Chinchay',
-			position: 'Frontend Engineer',
-			company: 'Globant',
-			logo: 'globant.png'
+			testimonial: `"Pablo consistently demonstrates exceptional technical depth capable of tackling complex challenges. As an individual contributor what sets Pablo apart is their ability to operate relatively independently on critical work and executing on the goals of the project. When needed he's able to work with the rest of the team and guide them towards a solution."`,
+			author: 'Bryan Bigelow',
+			position: 'Senior Software Engineer at Walt Disney',
+			company: 'Disney',
+			logo: '/company/disney.webp'
 		},
 		{
 			id: 'testimonial-2',
-			testimonial: `"Pablo is a proactive professional who collaborates dynamically with the team to achieve goals. He is also highly self-taught and solves problems with ease. These skills allow him to grow rapidly and satisfy clients in changing environments."`,
-			author: 'Sara Vásquez Valarezo',
-			position: 'Project Manager',
-			company: 'Kruger',
-			logo: 'kruger.png'
+			testimonial: `"I had the chance to lead Pablo, and honestly, he's one of those engineers you're lucky to have on your team. Super proactive, always chasing best practices, and never afraid to speak up when something can be improved. He jumped into several POCs with tight deadlines and nailed every single one. Plus, he's the kind of teammate who makes the whole team better."`,
+			author: 'Nicolas Kaen',
+			position: 'Senior Software Engineer at Disney',
+			company: 'Disney',
+			logo: '/company/disney.webp'
 		},
 		{
 			id: 'testimonial-3',
 			testimonial: `"I've had the privilege of working with Pablo since the early days of Ekolabs, and he consistently delivers exceptional quality work on time, every time. His commitment to continuous improvement and professional excellence makes him an invaluable team member. Pablo combines technical expertise with genuine integrity, as a professional and as a person. Any organization would be fortunate to work with him."`,
 			author: 'David Santos',
 			position: 'Principal Consultant at ThoughtWorks',
-			company: '',
-			logo: 'kruger.png'
+			company: 'ThoughtWorks',
+			logo: '/company/thoughtworks.webp'
+		},
+		{
+			id: 'testimonial-4',
+			testimonial: `"Pablo is a proactive professional who collaborates dynamically with the team to achieve goals. He is also highly self-taught and solves problems with ease. These skills allow him to grow rapidly and satisfy clients in changing environments."`,
+			author: 'Sara Vásquez Valarezo',
+			position: 'Project Manager',
+			company: 'Kruger',
+			logo: '/company/kruger.webp'
+		},
+		{
+			id: 'testimonial-5',
+			testimonial: `"Pablo is such a productive, very detailed Front-end Developer. Working with him brings creativity to solve problems into a project. I highly recommend his work. It won't be hard for him to adapt to a team." `,
+			author: 'Igor Chinchay',
+			position: 'Frontend Engineer',
+			company: 'Globant',
+			logo: '/company/globant.webp'
 		}
 	];
 </script>
@@ -62,7 +78,7 @@
 			<Typography
 				dataScrollSpeed="0.05"
 				variant="h1"
-				class="z-10 !text-full sm:!text-7xl text-left mb-5 break-words"
+				class=" !text-full sm:!text-7xl text-left mb-5 break-words"
 				neonType={NeonEnum.primary}
 				gradient>Testimonials</Typography
 			>

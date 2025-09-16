@@ -9,25 +9,25 @@
 			name: 'Globant',
 			color: 'bg-[#bfd732]',
 			bgColor: '#bfd732',
-			logo: 'globant.png',
-			roles: [{ roleName: 'Web Developer UI', timeRange: ['Sep 2016', 'Sep 2017'] }]
+			logo: '/company/globant.webp',
+			roles: [{ roleName: 'Ssr Software Engineer', timeRange: ['Jun. 2024', 'Present'] }]
 		},
 		{
 			name: 'Kruger',
 			color: 'bg-[#ff4800]',
 			bgColor: '#ff4800',
-			logo: 'kruger.png',
+			logo: '/company/kruger.webp',
 			roles: [
-				{ roleName: 'Technical Leader', timeRange: ['Sep 2016', 'Sep 2017'] },
-				{ roleName: 'Front End Leader', timeRange: ['Sep 2018', 'Sep 2019'] }
+				{ roleName: 'Technical Leader', timeRange: ['Jul. 2023', 'Jun. 2024'] },
+				{ roleName: 'Front End Leader', timeRange: ['Aug. 2022', 'Jul. 2023'] }
 			]
 		},
 		{
 			name: 'AmcorDesign',
 			color: 'bg-[#41c1f0]',
 			bgColor: '#41c1f0',
-			logo: 'amcor.png',
-			roles: [{ roleName: 'Technical Leader', timeRange: ['Sep 2015', 'Sep 2016'] }]
+			logo: '/company/amcor.webp',
+			roles: [{ roleName: 'Junior Software Engineer', timeRange: ['Mar. 2022', 'Aug. 2022'] }]
 		}
 	];
 </script>
