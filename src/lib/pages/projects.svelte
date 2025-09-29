@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { env } from '$env/dynamic/public';
 	import TiltedBanner from '$lib/TiltedBanner/TiltedBanner.svelte';
 	import Typography from '$lib/Typography/Typography.svelte';
 	import { NeonEnum } from '$lib/Typography/Typography.types';

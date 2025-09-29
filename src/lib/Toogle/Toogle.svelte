@@ -1,7 +1,14 @@
 <script lang="ts">
 	import { updateAppState, appState } from '../../routes/+layout.svelte';
+	import { trackThemeToggle } from '$lib/utils/analytics';
 
 	let toggleElement: HTMLInputElement | null = null;
+
+	const handleToggle = () => {
+		const newTheme = appState.isDarkMode ? 'light' : 'dark';
+		trackThemeToggle(newTheme);
+		updateAppState();
+	};
 
 	$effect(() => {
 		if (toggleElement) {
@@ -14,7 +21,7 @@
 	<input
 		type="checkbox"
 		bind:this={toggleElement}
-		onclick={updateAppState}
+		onclick={handleToggle}
 		id="toggle"
 		class="toggle-input"
 	/>

@@ -24,7 +24,7 @@ export const buttonTypeClasses: Record<ButtonTypeEnum, string> = {
 	[ButtonTypeEnum.fill]: `
     px-10 py-3
     my-2
-    hover:border-2 hover:border-primary
+    hover:ring hover:ring-primary hover:ring-offset-0
     rounded-full
     text-white hover:text-primary 
     font-bold

@@ -4,6 +4,7 @@
 
 	import Typography from '$lib/Typography/Typography.svelte';
 	import { cn } from '$lib/utils';
+	import { trackProjectClick } from '$lib/utils/analytics';
 	import type { Snippet } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { fade, fly } from 'svelte/transition';
@@ -33,7 +34,12 @@
 			out:fade
 			class="absolute top-0 z-50 bg-[gray] bg-opacity-80 w-full h-[80vh] overflow-visible flex flex-col"
 			onmouseleave={() => onMouseOverImage(null)}
-			onclick={() => project.link && window.open(project.link, '_blank')}
+			onclick={() => {
+				trackProjectClick(project.title);
+				if (project.link) {
+					window.open(project.link, '_blank');
+				}
+			}}
 		>
 			<Typography
 				variant="h3"

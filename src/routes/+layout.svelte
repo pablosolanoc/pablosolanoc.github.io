@@ -25,6 +25,8 @@
 </script>
 
 <script lang="ts">
+	import Analytics from '$lib/components/Analytics.svelte';
+	import CookieConsent from '$lib/components/CookieConsent.svelte';
 	import Footer from '$lib/Footer/Footer.svelte';
 
 	import Navbar from '$lib/Navbar/Navbar.svelte';
@@ -48,6 +50,7 @@
 	/>
 </svelte:head>
 
+<Analytics />
 <Navbar />
 
 <main class="bg-[red]-comment flex flex-col justify-center w-full items-center relative z-0">
@@ -57,3 +60,4 @@
 </main>
 
 <Footer />
+<CookieConsent />

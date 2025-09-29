@@ -8,6 +8,7 @@
 	import SocialMedia from '$lib/SocialMedia/SocialMedia.svelte';
 	import Typography from '$lib/Typography/Typography.svelte';
 	import { NeonEnum } from '$lib/Typography/Typography.types';
+	import { trackCVDownload } from '$lib/utils/analytics';
 
 	import Download from '@tabler/icons-svelte/icons/download';
 
@@ -56,6 +57,7 @@
 							href={'https://github.com/pablosolanoc/CV/blob/main/Pablo%20Solano_En.pdf'}
 							anchorStyleType={ButtonTypeEnum.shell}
 							class="!flex mt-6 justify-center !w-[70%] sm:!w-[15rem]"
+							onclick={trackCVDownload}
 						>
 							Download CV <Download class="ml-2" />
 						</Anchor>
