@@ -8,7 +8,6 @@
 
 	// Initialize Google Analytics
 	onMount(() => {
-		debugger;
 		if (!browser || !GA_ID) return;
 
 		const consent = localStorage.getItem('cookie-consent');
