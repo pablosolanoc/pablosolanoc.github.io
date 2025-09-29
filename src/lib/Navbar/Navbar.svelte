@@ -7,6 +7,7 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import AnimatedUnderline from '$lib/AnimatedUnderline/AnimatedUnderline.svelte';
+	import { trackSectionView } from '$lib/utils/analytics';
 
 	const sections = [
 		{ title: 'Home', href: '/home' },
@@ -66,6 +67,7 @@
 					anchorId = anchorId.replace('/', '');
 
 					const anchor = document.getElementById(anchorId);
+					trackSectionView(anchorId);
 					if (anchor) {
 						getScrollInstance()?.scrollTo(anchor, { offset: -100 });
 					} else {

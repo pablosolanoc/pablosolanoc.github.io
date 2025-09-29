@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
+	import { PUBLIC_VITE_GA_ID } from '$env/static/public';
 	import { onMount } from 'svelte';
 
-	const GA_ID = import.meta.env.VITE_GA_ID;
+	const GA_ID = PUBLIC_VITE_GA_ID;
 
 	// Initialize Google Analytics
 	onMount(() => {
+		debugger;
 		if (!browser || !GA_ID) return;
 
 		const consent = localStorage.getItem('cookie-consent');
@@ -20,7 +22,7 @@
 
 		// Initialize gtag
 		window.dataLayer = window.dataLayer || [];
-		window.gtag = function() {
+		window.gtag = function () {
 			window.dataLayer.push(arguments);
 		};
 		window.gtag('js', new Date());

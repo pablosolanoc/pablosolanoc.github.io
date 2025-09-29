@@ -1,4 +1,5 @@
 import { browser } from '$app/environment';
+import { PUBLIC_VITE_GA_ID } from '$env/static/public';
 
 declare global {
 	interface Window {
@@ -7,11 +8,11 @@ declare global {
 	}
 }
 
-export const GA_ID = import.meta.env.VITE_GA_ID || '';
+export const GA_ID = PUBLIC_VITE_GA_ID;
 
 export const trackPageView = (url: string) => {
 	if (!browser || !window.gtag || !GA_ID) return;
-	
+
 	window.gtag('config', GA_ID, {
 		page_path: url
 	});
@@ -19,7 +20,7 @@ export const trackPageView = (url: string) => {
 
 export const trackEvent = (action: string, category: string, label?: string, value?: number) => {
 	if (!browser || !window.gtag || !GA_ID) return;
-	
+
 	window.gtag('event', action, {
 		event_category: category,
 		event_label: label,
@@ -29,7 +30,7 @@ export const trackEvent = (action: string, category: string, label?: string, val
 
 export const trackCustomEvent = (eventName: string, parameters: Record<string, any> = {}) => {
 	if (!browser || !window.gtag || !GA_ID) return;
-	
+
 	window.gtag('event', eventName, parameters);
 };
 

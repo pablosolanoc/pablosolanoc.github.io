@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_VITE_GA_ID } from '$env/static/public';
 	import TestimonialCard from '$lib/TestimonialCard/TestimonialCard.svelte';
 	import Typography from '$lib/Typography/Typography.svelte';
 	import { NeonEnum } from '$lib/Typography/Typography.types';
