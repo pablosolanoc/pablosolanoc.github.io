@@ -74,7 +74,7 @@
 
 <div class="w-full flex justify-center md:mt-32 outlier:max-w-[1920px] mt-10" id="testimonials">
 	<div class="w-10/12 flex flex-col lg:flex-row flex-wrap">
-		<div class="w-full xl:w-1/3 flex flex-col justify-center">
+		<div class="w-full xl:w-1/3 flex flex-col justify-start">
 			<Typography
 				dataScrollSpeed="0.05"
 				variant="h1"

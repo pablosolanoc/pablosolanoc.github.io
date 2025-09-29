@@ -6,7 +6,7 @@
 
 	const projects: ProjectsType[] = [
 		{
-			title: 'Amcor Design',
+			title: 'Amcor Design (Now Laruci)',
 			role: 'Junior Frontend Developer',
 			description: 'Junior Frontend Developer',
 			link: 'https://www.laruci.com/',
@@ -34,16 +34,16 @@
 		{
 			title: "Disney's Ensemble",
 			role: 'Web UI Developer SSR',
-			description: 'Description 1',
-			link: 'https://ensemble.disney.com/app/login.html',
+			description: "Internal tool for Disney's handling of bookings and finance information",
+			// link: 'https://ensemble.disney.com/app/login.html',
 			image: 'ensemble-banner.png',
 			id: 4
 		},
 		{
 			title: "Disney's SpellBook",
 			role: 'Web UI Developer SSR',
-			description: "UI Library with hundred of components for Disney's usage",
-			link: 'Internal usage only',
+			description: "UI Library with hundred of components for Disney's project development",
+			// link: 'Internal usage only',
 			image: 'spellbook-banner.png',
 			id: 5
 		}
