@@ -5,16 +5,9 @@ export function load() {
 		{
 			id: '1',
 			title: 'Testing Entry 1',
-			dateWritten: '2025-08-26',
-			category: 'tech',
+			dateWritten: '2025-10-08', // "YYYY-MM-DD"
+			category: 'writing',
 			route: 'firstEntry'
-		},
-		{
-			id: '2',
-			title: 'Testing Entry 2 - Loooong title to test if it overflows correctly or not',
-			dateWritten: '2025-08-26',
-			category: 'tech',
-			route: 'secondEntry'
 		}
 	];
 	return {
