@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { PUBLIC_VITE_GA_ID } from '$env/static/public';
 	import TestimonialCard from '$lib/TestimonialCard/TestimonialCard.svelte';
 	import Typography from '$lib/Typography/Typography.svelte';
 	import { NeonEnum } from '$lib/Typography/Typography.types';
@@ -10,17 +9,25 @@
 	let container: HTMLElement | null = null;
 	let swapy: Swapy | null = null;
 
-	onMount(() => {
-		if (container) {
+	let isMobile = $state(false);
+
+	$effect(() => {
+		if (container && !isMobile) {
 			swapy = createSwapy(container, {
 				autoScrollOnDrag: true
-				// swapMode: 'drop'
 			});
-
-			swapy.onSwap((event) => {
-				console.log('Swapped:', event);
-			});
+		} else {
+			swapy?.destroy();
 		}
+	});
+
+	onMount(() => {
+		const mobileMediaQuery = window.matchMedia('(max-width: 768px)'); // Example breakpoint
+		isMobile = mobileMediaQuery.matches;
+
+		mobileMediaQuery.addEventListener('change', (e) => {
+			isMobile = e.matches;
+		});
 	});
 
 	onDestroy(() => {
@@ -95,6 +102,11 @@
 			class="w-full xl:w-2/3 mt-14 xl:mt-0 md:flex xl:flex-col justify-center flex-wrap xl:flex-wrap-reverse xl:h-auto xl:max-h-[150vh]"
 			bind:this={container}
 		>
+			{#if isMobile}
+				<p>You are on a mobile device!</p>
+			{:else}
+				<p>You are on a desktop device.</p>
+			{/if}
 			{#each testimonials as testimonial}
 				<TestimonialCard {testimonial} />
 			{/each}
