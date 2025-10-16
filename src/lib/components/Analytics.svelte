@@ -10,9 +10,6 @@
 	onMount(() => {
 		if (!browser || !GA_ID) return;
 
-		const consent = localStorage.getItem('cookie-consent');
-		if (consent !== 'accepted') return;
-
 		// Load gtag script
 		const script = document.createElement('script');
 		script.async = true;
