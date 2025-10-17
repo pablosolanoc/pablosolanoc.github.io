@@ -13,7 +13,7 @@
 		// Load gtag script
 		const script = document.createElement('script');
 		script.async = true;
-		script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}aaaa`;
+		script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
 		document.head.appendChild(script);
 
 		// Initialize gtag
