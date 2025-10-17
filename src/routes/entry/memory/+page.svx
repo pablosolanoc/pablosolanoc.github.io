@@ -1,0 +1,37 @@
+# Memory
+
+
+Turns out memory in for LLMs in a database is just a sessionId or chatId to a corresponding json blob of the input or response of the chat.
+
+So for input:
+
+```json
+{
+  "type": "human",
+  "content": "que informacion tienes ??",
+}
+```
+Response:
+
+```json
+{
+  "type": "ai",
+  "content": "No tengo información disponible en este momento. ¿Hay algo específico en lo que te gustaría que te ayude?",
+}
+```
+
+So much for a mistery. There is a bit more like "response_metadata" or "tool_calls", "invalid_tool_calls",
+but I will get to that later, even that is just another entry in the blob.
+
+Looks like that is pretty standard as far as I have seen, multiple DB schemas have the same, maybe 'role' in a different column, but not that much difference.
+
+---
+
+I tracked down how n8n uses memory to this [file](https://github.com/n8n-io/n8n/blob/b32c8cef6e260ffa73d1e6480ab52c01c10a011f/packages/%40n8n/nodes-langchain/nodes/agents/Agent/agents/ToolsAgent/V2/execute.ts#L273)
+
+Two major questions to this:
+
+- Why does it 
+
+
+

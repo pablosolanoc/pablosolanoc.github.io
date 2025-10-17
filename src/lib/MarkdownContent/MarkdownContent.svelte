@@ -2,8 +2,8 @@
 	let { children } = $props();
 </script>
 
-<div class="flex justify-center">
-	<div class="prose dark:prose-invert max-w-[90%] mt-10 self-center">
+<div class="flex justify-center w-screen">
+	<div class="prose dark:prose-invert max-w-[90%] mt-10 self-center w-screen">
 		{@render children()}
 	</div>
 </div>
