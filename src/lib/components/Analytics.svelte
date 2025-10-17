@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
-	import { PUBLIC_VITE_GA_ID } from '$env/static/public';
+	import { PUBLIC_VITE_GA_ID2 } from '$env/static/public';
 	import { onMount } from 'svelte';
 
-	const GA_ID = PUBLIC_VITE_GA_ID;
+	const GA_ID = PUBLIC_VITE_GA_ID2;
 
 	// Initialize Google Analytics
 	onMount(() => {

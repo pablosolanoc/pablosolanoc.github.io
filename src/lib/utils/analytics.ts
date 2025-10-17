@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { PUBLIC_VITE_GA_ID } from '$env/static/public';
+import { PUBLIC_VITE_GA_ID2 } from '$env/static/public';
 
 declare global {
 	interface Window {
@@ -8,7 +8,7 @@ declare global {
 	}
 }
 
-export const GA_ID = PUBLIC_VITE_GA_ID;
+export const GA_ID = PUBLIC_VITE_GA_ID2;
 
 export const trackPageView = (url: string) => {
 	if (!browser || !window.gtag || !GA_ID) return;
