@@ -9,13 +9,13 @@ export function load() {
 			category: 'writing',
 			route: 'regret'
 		},
-		{
-			id: '2',
-			title: 'Memory',
-			dateWritten: '2025-10-15', // "YYYY-MM-DD"
-			category: 'all',
-			route: 'memory'
-		},
+		// {
+		// 	id: '2',
+		// 	title: 'Memory',
+		// 	dateWritten: '2025-10-15', // "YYYY-MM-DD"
+		// 	category: 'all',
+		// 	route: 'memory'
+		// },
 		{
 			id: '1',
 			title: 'Testing Entry 1',
