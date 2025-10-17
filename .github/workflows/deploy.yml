@@ -31,7 +31,6 @@ jobs:
           BASE_PATH: "/${{ github.event.repository.name }}"
           PUBLIC_VITE_GA_ID2: ${{ vars.PUBLIC_VITE_GA_ID2 }}
         run: npm run build
-          echo "HAHA  ${{ vars.PUBLIC_VITE_GA_ID2 }}"
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
