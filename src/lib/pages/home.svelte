@@ -11,6 +11,7 @@
 	import { trackCVDownload } from '$lib/utils/analytics';
 
 	import Download from '@tabler/icons-svelte/icons/download';
+	import { onMount } from 'svelte';
 
 	const aboutMeMetrics: MetricType[] = [
 		{ title: 'Years of Experience', metric: 4, additional: '+' },
@@ -22,6 +23,24 @@
 		},
 		{ title: 'Industries served', metric: 4 }
 	];
+
+	const professions = ['Full Stack Developer', 'Systems Engineer'];
+	let currentProfessionIndex = 0;
+	let currentProfession = professions[0];
+	let isAnimating = false;
+
+	onMount(() => {
+		const interval = setInterval(() => {
+			isAnimating = true;
+			setTimeout(() => {
+				currentProfessionIndex = (currentProfessionIndex + 1) % professions.length;
+				currentProfession = professions[currentProfessionIndex];
+				isAnimating = false;
+			}, 300);
+		}, 3000);
+
+		return () => clearInterval(interval);
+	});
 </script>
 
 <div class="w-full bg-[red]-comment flex justify-center md:mt-32 outlier:max-w-[1920px]" id="home">
@@ -32,7 +51,7 @@
 			>
 				<div data-scroll data-scroll-speed="0.9" class="">
 					<div
-						class="z-20 flex items-center flex-col-reverse md:flex-row bg-lightMode dark:bg-darkMode p-4"
+						class="z-20 flex items-center flex-col-reverse md:flex-row bg-lightMode dark:bg-darkMode py-4 pr-4"
 					>
 						<Typography variant="h2" class="lg:text-4xl mr-2 text-center" animatedUnderline
 							>Hi ! I am Pablo
@@ -47,11 +66,16 @@
 						class="min-h-64 flex md:block flex-col items-center !z-10"
 					>
 						<Typography variant="h1" class="break-keep text-center md:text-left">I'm a</Typography>
+
 						<Typography
 							variant="h1"
-							class="!text-full !break-words sm:!text-7xl text-center md:text-left "
-							neonType={NeonEnum.extra}>Full Stack Developer</Typography
+							class="!text-full !break-words sm:!text-7xl text-center md:text-left transition-all duration-500 {isAnimating
+								? 'opacity-0 translate-y-4'
+								: 'opacity-100 translate-y-0'}"
+							neonType={currentProfessionIndex === 0 ? NeonEnum.extra : NeonEnum.primary}
+							>{currentProfession}</Typography
 						>
+
 						<Anchor
 							target="_blank"
 							href={'https://github.com/pablosolanoc/CV/blob/main/Pablo%20Solano_En.pdf'}
