@@ -102,11 +102,6 @@
 			class="w-full xl:w-2/3 mt-14 xl:mt-0 md:flex xl:flex-col justify-center flex-wrap xl:flex-wrap-reverse xl:h-auto xl:max-h-[150vh]"
 			bind:this={container}
 		>
-			{#if isMobile}
-				<p>You are on a mobile device!</p>
-			{:else}
-				<p>You are on a desktop device.</p>
-			{/if}
 			{#each testimonials as testimonial}
 				<TestimonialCard {testimonial} />
 			{/each}
