@@ -3,6 +3,13 @@ import type { WritingEntry } from './types';
 export function load() {
 	const writingEntriesToShow: WritingEntry[] = [
 		{
+			id: '5',
+			title: 'Vacation',
+			dateWritten: '2025-11-25', // "YYYY-MM-DD"
+			category: 'writing',
+			route: 'vacation'
+		},
+		{
 			id: '4',
 			title: 'Colors',
 			dateWritten: '2025-10-29', // "YYYY-MM-DD"
