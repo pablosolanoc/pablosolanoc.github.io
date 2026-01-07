@@ -1,0 +1,10 @@
+## 12-31-2025
+
+Today I solved - LeetCode Problem: Add Two Numbers:  [https://leetcode.com/problems/add-two-numbers](https://leetcode.com/problems/add-two-numbers)
+
+And also started reviewing: [https://runestone.academy/ns/books/published/pythonds/index.html](https://runestone.academy/ns/books/published/pythonds/index.html)
+
+Which is the best answer I could find on how to get better into DSA
+This book also suggests this [playlist](https://www.youtube.com/watch?v=HdZHjXfvIEU&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3) which at least the firs minutes has been pretty good.
+
+Hopefully it is worth investing time in it.

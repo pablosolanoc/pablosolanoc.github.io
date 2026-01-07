@@ -14,6 +14,7 @@
 
 	const categories: Category[] = [
 		{ id: 'all', name: 'All' },
+		{ id: 'codeProblems', name: 'Code Problems' },
 		{ id: 'writing', name: 'Writing' }
 	];
 

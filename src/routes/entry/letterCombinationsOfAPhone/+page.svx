@@ -1,0 +1,7 @@
+## 01-01-2026
+
+I solved this LeetCode problem: [https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/).
+
+I find my solution actually very elegant but it turns out not that fast. I immediately went for what my mind tends to point to as I saw this as basically another numerical system, I like that my function would work for any other number of numerical system so if there is a button in a phone that would have N number of letters in it, I simply have to send N to my function and replace it where 4 is present right now.
+
+I think I will look at the faster solution tomorrow... I think its got something to do with backtracking.

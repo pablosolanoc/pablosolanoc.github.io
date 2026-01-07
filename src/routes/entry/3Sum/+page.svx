@@ -1,0 +1,26 @@
+## 01-02-2026
+
+I attempted to solve Leetcode problem: [3Sum](https://leetcode.com/problems/3sum/description/?source=submission-noac)
+
+
+Turns out to be more complicated than I thought... I attempted a very basic implementation and it was working fine, until I arrived to a bug where I was doing the wrong way of sorting in JavaScript, a thing I have done hundreds of times... It was failing in a fairly complex test case so my debugging was kind of limited. 
+
+After arriving to a solution to that bug then I got to a point where my code was very slow, for 3 test cases I get "Time limit exception", I did make it more efficient finding out I didn't need to hold the array of indexes for all numbers, just one is okay, but it still is showing the time exception.
+
+I think I have to get back to square one, I believe I have to do some sorting before getting to the main logic... but I will get back to it later.
+
+## 01-03-2026
+
+I went back to solve [3Sum](https://leetcode.com/problems/3sum/description/?source=submission-noac)
+
+But it got me nowhere, I just spent like 2 hours making a second algorithm that would improve on the first solution in efficiency and just got one more solution, 3 test cases still have the time limit exception... I will come back tomorrow, 
+
+## 01-04-2026
+
+I tried again, now I went with the two pointer approach added to what I had, the major problem is that I still need to hold the values of the complements in an object for which I have to traverse the list once before properly starting the algorithm. I made it better as I am iterating until half of the list length, but still it is O(n^2)... No luck
+
+## 01-05-2026
+
+I gooooooot it, so simple. Well, after 3 days of failing. I had to use the two pointer logic but going into opposite directions and according to what sum result is I have to either go a step right or a step left in its respective pointers...
+
+It still not the fastest, but it does the trick, I guess it still takes time when a lot of repeated numbers form all or the majority of the list, but its okay, it passed all the tests
