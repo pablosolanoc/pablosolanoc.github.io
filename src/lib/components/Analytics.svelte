@@ -1,50 +1,24 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { page } from '$app/stores';
-	import { PUBLIC_VITE_GA_ID2 } from '$env/static/public';
-	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
+	import { tick } from 'svelte';
+	import { GA_ID, initAnalytics, trackPageView } from '$lib/utils/analytics';
 
-	const GA_ID = PUBLIC_VITE_GA_ID2;
+	// Bootstrap during component init (not onMount) so gtag exists before the
+	// first `afterNavigate` callback fires.
+	if (browser && GA_ID) initAnalytics();
 
-	// Initialize Google Analytics
-	onMount(() => {
-		if (!browser || !GA_ID) return;
-
-		// Load gtag script
-		const script = document.createElement('script');
-		script.async = true;
-		script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-		document.head.appendChild(script);
-
-		// Initialize gtag
-		window.dataLayer = window.dataLayer || [];
-		window.gtag = function () {
-			window.dataLayer.push(arguments);
-		};
-		window.gtag('js', new Date());
-		window.gtag('consent', 'default', {
-			analytics_storage: 'granted',
-			ad_storage: 'denied'
-		});
-		window.gtag('config', GA_ID, {
-			page_title: document.title,
-			page_location: window.location.href,
-			anonymize_ip: true
-		});
+	// `afterNavigate` also runs on mount, so this covers the initial page view
+	// and every client-side navigation with a single code path.
+	afterNavigate(async (navigation) => {
+		// Let <svelte:head> apply the new document title before we read it.
+		await tick();
+		trackPageView(navigation.to?.url ?? window.location.href);
 	});
-
-	// Track page changes
-	$: if (browser && $page.url.pathname && window.gtag && GA_ID) {
-		window.gtag('config', GA_ID, {
-			page_path: $page.url.pathname,
-			page_title: document.title,
-			page_location: window.location.href
-		});
-	}
 </script>
 
 <svelte:head>
 	{#if GA_ID}
-		<!-- Google Analytics 4 will be loaded dynamically -->
+		<link rel="preconnect" href="https://www.googletagmanager.com" />
 	{/if}
 </svelte:head>

@@ -26,10 +26,26 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Fail loudly: a missing ID no longer breaks the build, so without this
+      # guard we would silently deploy a site with no analytics.
+      - name: Check Google Analytics ID
+        env:
+          VITE_GA_ID: ${{ vars.VITE_GA_ID }}
+        run: |
+          if [ -z "$VITE_GA_ID" ]; then
+            echo "::error::VITE_GA_ID is empty. Set the VITE_GA_ID repository variable (Settings > Secrets and variables > Actions > Variables)."
+            exit 1
+          fi
+          if ! echo "$VITE_GA_ID" | grep -qE '^G-[A-Z0-9]+$'; then
+            echo "::error::VITE_GA_ID does not look like a GA4 measurement ID (expected G-XXXXXXXXXX)."
+            exit 1
+          fi
+          echo "Google Analytics ID looks valid."
+
       - name: build
         env:
           BASE_PATH: "/${{ github.event.repository.name }}"
-          PUBLIC_VITE_GA_ID2: ${{ vars.PUBLIC_VITE_GA_ID2 }}
+          VITE_GA_ID: ${{ vars.VITE_GA_ID }}
         run: npm run build
 
       - name: Upload Artifacts
