@@ -16,7 +16,7 @@
 	} = $props();
 </script>
 
-<div data-swapy-slot={testimonial.id} class={'w-full md:w-1/2'}>
+<div data-swapy-slot={testimonial.id} class={'w-full md:w-1/2 xl:w-full xl:break-inside-avoid'}>
 	<div data-swapy-item={testimonial.id}>
 		<MagicCard
 			gradientSize={900}

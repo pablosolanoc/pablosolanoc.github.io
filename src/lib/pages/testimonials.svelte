@@ -99,7 +99,7 @@
 		</div>
 
 		<div
-			class="w-full xl:w-2/3 mt-14 xl:mt-0 md:flex xl:flex-col justify-center flex-wrap xl:flex-wrap-reverse xl:h-auto xl:max-h-[150vh]"
+			class="w-full xl:w-2/3 mt-14 xl:mt-0 md:flex justify-center flex-wrap xl:block xl:columns-2"
 			bind:this={container}
 		>
 			{#each testimonials as testimonial}
